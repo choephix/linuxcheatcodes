@@ -1,1 +1,12 @@
+# systemd unit file
+#
 
+[Unit]
+Description=Ungit Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/sudo /usr/local/bin/ungit --ungitBindIp 0.0.0.0 --port 6617 --no-launchBrowser --dev --autoCheckoutOnBranchCreate
+
+[Install]
+WantedBy=multi-user.target
