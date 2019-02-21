@@ -1,0 +1,17 @@
+# systemd unit file
+#
+# place in /etc/systemd/system
+# systemctl enable wetty.service
+# systemctl start wetty.service
+
+[Unit]
+Description=Wetty Web Terminal
+After=network.target
+
+[Service]
+
+#WorkingDirectory=/usr/local/lib/node_modules/wetty.js
+ExecStart=/usr/bin/sudo /usr/local/bin/wetty --port 5440  --host 0.0.0.0
+
+[Install]
+WantedBy=multi-user.target
