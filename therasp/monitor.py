@@ -31,7 +31,7 @@ while True:
         sys.stdout.flush()
         c_max = 0.0
         t_prev = t
-    else:
-        sys.stdout.write('\r')
-        print_line((int)(t), c)
+    # else:
+    #     sys.stdout.write('\r')
+    #     print_line((int)(t), c)
     time.sleep(.250)
