@@ -17,19 +17,20 @@ def print_line(clock,temp):
     sys.stdout.flush()
 
 
-interval = 1
-t_prev = 0
-c_max = 0
+interval = 1.0
+t_prev = 0.0
+c_max = 0.0
 while True:
     t = time.clock()
     c = cpu.temperature
+    if c_max < c:
+        c_max = c
     if t - t_prev >= interval:
         print_line((int)(t), c_max)
         sys.stdout.write('\r\n')
         sys.stdout.flush()
-        c_max = 0
+        c_max = 0.0
+        t_prev = t
     else:
         print_line((int)(t), c)
-        if c_max < c:
-            c_max = c
     time.sleep(.250)
