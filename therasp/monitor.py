@@ -4,7 +4,6 @@ import time
 
 cpu = CPUTemperature()
 
-
 def print_line(clock,temp):
     endc = '\033[0m'
     clr = '\033[94m'
@@ -16,7 +15,6 @@ def print_line(clock,temp):
     sys.stdout.write('\r')
     sys.stdout.write(" ~ temperature: "+clr+(str)(temp)+" degrees"+endc)
     sys.stdout.flush()
-
 
 interval = 1.0
 t_prev = 0.0
