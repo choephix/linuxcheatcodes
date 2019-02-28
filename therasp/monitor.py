@@ -34,4 +34,5 @@ while True:
     # else:
     #     sys.stdout.write('\r')
     #     print_line((int)(t), c)
+    print(t, t_prev)
     time.sleep(.250)
