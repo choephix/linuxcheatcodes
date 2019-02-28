@@ -27,10 +27,11 @@ while True:
         c_max = c
     if t - t_prev >= interval:
         print_line((int)(t), c_max)
-        sys.stdout.write('\r\n')
+        sys.stdout.write('\n')
         sys.stdout.flush()
         c_max = 0.0
         t_prev = t
     else:
+        sys.stdout.write('\r')
         print_line((int)(t), c)
     time.sleep(.250)
