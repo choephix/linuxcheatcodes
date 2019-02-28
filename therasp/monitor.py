@@ -13,6 +13,7 @@ def print_line(clock,temp):
     if temp > 55.0: clr = '\033[93m'
     if temp > 60.0: clr = '\033[91m'
     if temp > 70.0: clr = '\033[101m'
+    sys.stdout.write('\r')
     sys.stdout.write(" ~ temperature: "+clr+(str)(temp)+" degrees"+endc)
     sys.stdout.flush()
 
@@ -32,6 +33,5 @@ while True:
         c_max = 0.0
         t_prev = t
     else:
-        sys.stdout.write('\r')
         print_line((int)(t), c)
     time.sleep(.200)
