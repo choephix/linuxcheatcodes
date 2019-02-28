@@ -25,3 +25,4 @@ while True:
         sys.stdout.write('\r')
         sys.stdout.flush()
     print_line( (int)(t), cpu.temperature )
+    time.sleep(.100)
