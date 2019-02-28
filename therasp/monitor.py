@@ -22,5 +22,6 @@ t_prev = 0
 while True:
     t = time.clock()
     if t - t_prev >= interval:
-      sys.stdout.write('\r')
-    print_line( t, cpu.temperature )
+        sys.stdout.write('\r')
+        sys.stdout.flush()
+    print_line( (int)(t), cpu.temperature )
