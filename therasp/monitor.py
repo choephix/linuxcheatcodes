@@ -21,7 +21,7 @@ interval = 1.0
 t_prev = 0.0
 c_max = 0.0
 while True:
-    t = time.clock()
+    t = time.ctime()
     c = cpu.temperature
     if c_max < c:
         c_max = c
