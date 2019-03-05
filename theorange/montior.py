@@ -39,6 +39,7 @@ temp_max = 0.0
 t_prev = 0.0
 
 try:
+  os.system('clear') 
   while True:
     t = time.time()
     with open( fpath ) as f:
