@@ -22,6 +22,9 @@ def print_line( t, temp ):
   sys.stdout.write(s)
   sys.stdout.flush()
 
+  
+os.system('clear')
+
 
 fpath = "/sys/class/thermal/thermal_zone0/temp"
 colors = [  4,  6,  2,  3,  1, 11 ]
@@ -39,7 +42,6 @@ temp_max = 0.0
 t_prev = 0.0
 
 try:
-  os.system('clear') 
   while True:
     t = time.time()
     with open( fpath ) as f:
