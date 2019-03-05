@@ -1,4 +1,9 @@
-import sys, os, time
+import sys
+import os
+import time
+
+
+os.system('clear')
 
 
 def print_line( t, temp ):
@@ -12,7 +17,7 @@ def print_line( t, temp ):
       break
   s = ''
   s += c(30+clr)
-  s += "^ temperature: "
+  s += "-> cpu temperature: "
   s += c(90+clr)+temp_str
   s += c(30+clr)
   s += " degrees celsius"
@@ -22,9 +27,6 @@ def print_line( t, temp ):
   sys.stdout.write(s)
   sys.stdout.flush()
 
-  
-os.system('clear')
-
 
 fpath = "/sys/class/thermal/thermal_zone0/temp"
 colors = [  4,  6,  2,  3,  1, 11 ]
@@ -33,7 +35,9 @@ thresh = [ 30, 40, 50, 60, 70 ]
 with open("/sys/firmware/devicetree/base/model") as f:
   device_name = f.read()
 
+print()
 print( device_name )
+print()
 
 # # # 
 
