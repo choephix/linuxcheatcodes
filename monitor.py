@@ -20,12 +20,11 @@ def print_line(t, temp):
       break
   s = ''
   s += c(30+clr)
-  s += "[ cpu temperature: "
-  s += c(90+clr)+temp_str
-  s += c(30+clr)
-  s += " degrees celsius ]"
-  # s += c(35)
-  # s += ' '
+  s += "  cpu temperature: "
+  s += c(90+clr) + temp_str
+  s += c(0) + c(30+clr)
+  s += " degrees celsius  "
+  s += c(0) + c(35)
   sys.stdout.write('\r')
   sys.stdout.write(s)
   sys.stdout.flush()
