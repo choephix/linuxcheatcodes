@@ -24,6 +24,7 @@ def print_line( t, temp ):
   s += c(30+clr)
   s += " degrees celsius"
   s += c(35)
+  s += ' '
   sys.stdout.write('\r')
   sys.stdout.write(s)
   sys.stdout.flush()
