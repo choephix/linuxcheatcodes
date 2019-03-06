@@ -3,11 +3,13 @@ import os
 import time
 
 
-os.system('clear')
+INTERVAL = 5.0
 
+
+def c(n): 
+  return "\033["+str(n)+"m"
 
 def print_line( t, temp ):
-  def c(n): return "\033["+str(n)+"m"
   temp_str = '{0:.3f}'.format(temp)
   clr = colors[0]
   for i, thre in enumerate(thresh):
@@ -21,9 +23,8 @@ def print_line( t, temp ):
   s += c(90+clr)+temp_str
   s += c(30+clr)
   s += " degrees celsius"
-  s += c(0)
+  s += c(35)
   sys.stdout.write('\r')
-  sys.stdout.write("\033[K")
   sys.stdout.write(s)
   sys.stdout.flush()
 
@@ -32,16 +33,16 @@ fpath = "/sys/class/thermal/thermal_zone0/temp"
 colors = [  4,  6,  2,  3,  1, 11 ]
 thresh = [ 30, 40, 50, 60, 70 ]
 
+os.system('clear')
+
 with open("/sys/firmware/devicetree/base/model") as f:
   device_name = f.read()
-
 print()
-print( device_name )
+print( c(35) + device_name )
 print()
 
 # # # 
 
-interval = 1.0
 temp_max = 0.0
 t_prev = 0.0
 
@@ -52,7 +53,7 @@ try:
       temp = .001 * float(f.read())
     if temp_max < temp:
         temp_max = temp
-    if t - t_prev >= interval:
+    if t - t_prev >= INTERVAL:
         print_line((int)(t), temp_max)
         sys.stdout.write('\n')
         sys.stdout.flush()
@@ -62,6 +63,6 @@ try:
         print_line((int)(t), temp)
     time.sleep(.200)
 except KeyboardInterrupt:
-  sys.stdout.write('\n\n')
+  sys.stdout.write('\n\n'+c(0))
   sys.stdout.flush()
   pass
