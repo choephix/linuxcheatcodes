@@ -3,7 +3,8 @@ import os
 import time
 
 
-INTERVAL = 5.0
+INTERVAL_VIEW = 0.500
+INTERVAL_COMMIT = 10.000
 
 
 def c(n):
@@ -54,7 +55,7 @@ try:
       temp = .001 * float(f.read())
     if temp_max < temp:
         temp_max = temp
-    if t - t_prev >= INTERVAL:
+    if t - t_prev >= INTERVAL_COMMIT:
         print_line((int)(t), temp_max)
         sys.stdout.write('\n')
         sys.stdout.flush()
@@ -62,7 +63,7 @@ try:
         t_prev = t
     else:
         print_line((int)(t), temp)
-    time.sleep(.200)
+    time.sleep(INTERVAL_VIEW)
 except KeyboardInterrupt:
   sys.stdout.write('\n\n'+c(0))
   sys.stdout.flush()
